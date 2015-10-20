@@ -17,7 +17,7 @@ module Admin
     end
 
     def create
-      @category = Category.new
+      @category = Category.new(category_params)
       respond_to do |format|
         if @category.save
           format.html { redirect_to admin_categories_path, notice: 'Category was successfully created.' }
@@ -42,6 +42,7 @@ module Admin
     end
 
     def destroy
+      @category.destroy
       respond_to do |format|
         format.html { redirect_to admin_categories_path, notice: 'Category was successfully destroyed.' }
         format.json { head :no_content }

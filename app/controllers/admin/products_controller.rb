@@ -1,6 +1,6 @@
 module Admin
   class ProductsController < AdminController
-    before_action :set_page, only:[:show, :edit, :update, :destroy]
+    before_action :set_product, only:[:show, :edit, :update, :destroy]
 
     def index
       @products = Product.all
@@ -17,7 +17,7 @@ module Admin
     end
 
     def create
-      @product = Product.new
+      @product = Product.new(product_params)
       respond_to do |format|
         if @product.save
           format.html { redirect_to admin_products_path, notice: 'Product was successfully created.' }
@@ -42,6 +42,7 @@ module Admin
     end
 
     def destroy
+      @product.destroy
       respond_to do |format|
         format.html { redirect_to admin_products_path, notice: 'Product was successfully destroyed.' }
         format.json { head :no_content }
@@ -55,7 +56,7 @@ module Admin
     end
 
     def product_params
-      params.require(:product).permit(:name)
+      params.require(:product).permit(:name, :category_id)
     end
   end
 end

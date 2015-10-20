@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.floatstyle{
+	float:left;
+	margin-right:3px;
+}

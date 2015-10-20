@@ -1,0 +1,12 @@
+<h1> Listing Products </h1>
+
+<%= link_to "New Product", new_admin_product_path %>
+<br>
+<% @products.each do |product| %>
+	<tr>
+		<td><%= product.name %></td>
+		<td><%= product.category_id %></td>
+		<td><%= link_to "Show", product_path(product) %></td>
+		<br>
+		</tr>
+<% end %>

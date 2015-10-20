@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-
-root 'admin/categories#index'
+root "welcome#index"
+get "admin" => 'admin#index'
 namespace :admin do
   resources :categories
   resources :products
 end
+resources :products, only: [:index, :show]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
