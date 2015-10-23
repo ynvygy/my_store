@@ -1,12 +1,25 @@
 <h1> Listing Products </h1>
 
-<%= link_to "New Product", new_admin_product_path %>
+<%= link_to "New Product", new_admin_product_path, :class => "btn btn-primary" %>
 <br>
-<% @products.each do |product| %>
-	<tr>
-		<td><%= product.name %></td>
-		<td><%= product.category_id %></td>
-		<td><%= link_to "Show", admin_product_path(product) %></td>
-		<td><%= link_to "Edit", edit_admin_product_path(product)%></td>
-		<td><%= link_to "Delete", admin_product_path(product), method: :delete, data: {confirm: 'Are you sure?', class:"button" }%></td><br></tr>
-<% end %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th> Name</th>
+      <th> Price</th>
+      <th> Category</th>
+      <th> Image</th>
+    </tr>
+  </thead>
+	<% @products.each do |product| %>
+		<tr>
+			<td><%= product.name %></td>
+			<td><%= number_to_euro(product.price) %></td>
+			<td><%= product.category_id %></td>
+			<td><%= link_to "Show", admin_product_path(product) %>
+			<%= link_to "Edit", edit_admin_product_path(product)%>
+			<%= link_to "Delete", admin_product_path(product), method: :delete, data: {confirm: 'Are you sure?', class:"button" }%></td><br>
+		</tr>
+	<% end %>
+</table>
+

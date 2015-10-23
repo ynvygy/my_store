@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
 root "welcome#index"
 get "admin" => 'admin#index'
 namespace :admin do
@@ -6,7 +7,9 @@ namespace :admin do
   resources :products
 end
 resources :products, only: [:index, :show]
-
+resource :cart, only: [ :show ] do
+  post "add", path: "add/:id"
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
