@@ -1,9 +1,13 @@
-<table class="table table-hover">
-	<% @cart.items.each do |item| %>
-		<tr>
-			<td><%= item.quantity%></td>
-			<td><%= item.product.name%></td>
-			<td><%= item.total_price%></td>
-		</tr>
+<ul>
+	<% @cart.line_items.each do |item| %>
+		<li><%= item.quantity %> x <%= item.product.name %>
+			<%= item.total_price %> </li>
 	<% end %>
-</table>
+	<%= @cart.total_price %>
+</ul>
+<%= button_to "Checkout", new_order_path, method: :get %>
+<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %> 
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>
+
+

@@ -1,15 +1,25 @@
 Rails.application.routes.draw do
+  resources :orders
+  resources :line_items
+  resources :carts
   devise_for :users
 root "welcome#index"
 get "admin" => 'admin#index'
 namespace :admin do
   resources :categories
   resources :products
+  resources :orders
 end
-resources :products, only: [:index, :show]
-resource :cart, only: [ :show ] do
-  post "add", path: "add/:id"
+scope '(:locale)' do
+  resources :orders
+  resources :line_items
+  resources :carts
 end
+resources :categories, only: [:index, :show] do
+  resources :products, only: [:index, :show]
+end
+resources :orders, only: [:new, :create]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

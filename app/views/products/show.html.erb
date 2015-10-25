@@ -1,5 +1,6 @@
 <p>Name: <%= @product.name%></p>
 <td><%= @product.price %></td>
 <td><%= @product.stock %></td>
-<p><%= link_to "Add to cart", add_cart_path, method: :post, :class => "btn btn-primary" %></p>
+<p><%= button_to "Add to cart", line_items_path(product_id: @product), :class => "btn btn-primary" %></p>
 <%= link_to "Back", root_path %>
+
