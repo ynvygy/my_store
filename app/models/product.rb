@@ -7,6 +7,13 @@ class Product < ActiveRecord::Base
   validates_presence_of :name, :price
   validates_numericality_of :price
 
+  def final_price
+    if offer
+      return price-offer
+    end
+    price
+  end
+
   private
 
   def ensure_not_referenced_by_any_line_item
@@ -17,6 +24,7 @@ class Product < ActiveRecord::Base
   		return false
   	end
   end
+
 end
 
 

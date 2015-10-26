@@ -1,2 +1,9 @@
 <h3> Welcome to my store </h3>
-<%=link_to "Products", products_path %>
+<%=link_to "Categories", categories_path %>
+
+<h4> Pleace check out our bargains </h4>
+<% @products.each do |product| %>
+	<% if product.offer %>
+		<p><%= product.name %></p>
+	<% end %>
+<% end %>

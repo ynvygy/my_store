@@ -10,5 +10,17 @@
   <%= @order.user %>
 </p>
 
+<p>
+  <strong>Price:</strong>
+  <%= @order.total_price %>
+</p>
+
+<p>
+	<strong>Products:</strong>
+	<% @order.line_items.each do |item| %>
+		<p><%= item.quantity %> x <%= item.product.name %> = <%=item.total_price %></p>
+	<% end %>
+</p>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

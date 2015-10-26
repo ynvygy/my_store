@@ -7,6 +7,7 @@
     <tr>
       <th> Name</th>
       <th> Price</th>
+      <th> Final Price </th>
       <th> Category</th>
       <th> Image</th>
     </tr>
@@ -15,6 +16,7 @@
 		<tr>
 			<td><%= product.name %></td>
 			<td><%= number_to_euro(product.price) %></td>
+			<td><%= number_to_euro(product.final_price) %></td>
 			<td><%= product.category_id %></td>
 			<td><%= link_to "Show", admin_product_path(product) %>
 			<%= link_to "Edit", edit_admin_product_path(product)%>

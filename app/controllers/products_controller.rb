@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
 	before_action :set_product, only:[:show]
 	def index
-		@products = Product.all
+		@category = Category.find(params[:category_id])
+		@products = @category.products
 	end
 	
 	def show
