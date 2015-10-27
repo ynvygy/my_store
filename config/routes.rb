@@ -18,6 +18,9 @@ end
 resources :categories, only: [:index, :show] do
   resources :products, only: [:index, :show]
 end
+resources :users do
+  resources :orders, only: [:index]
+end
 resources :orders, only: [:new, :create]
 
 

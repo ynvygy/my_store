@@ -1,13 +1,17 @@
 <h1> Listing Products </h1>
 
 <br>
-<% @products.each do |product| %>
-	<tr>
-		<td><%= link_to product.name, category_product_path(@category, product) %></td>
-		<td><%= product.category_id %></td>
-		<td><%= number_to_euro(product.price) %></td>
-		<td><%= product.stock %></td>
-		<td><%= image_tag(product.image.thumb) %></td>
-		<br>
-		</tr>
-<% end %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 prod"</div>
+		<% @products.each do |product| %>
+			<tr>
+				<div class="container">
+				<td><%= link_to product.name, category_product_path(@category, product) %></td><br>
+				<td><%= number_to_euro(product.price) %></td><br>
+				<td><%= image_tag(product.image.url) %></td><br></div>
+				<td><%= %></td>
+				</tr>
+		<% end %>
+	</div>
+</div>
+<%= will_paginate @products %>

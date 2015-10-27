@@ -25,6 +25,12 @@ class Product < ActiveRecord::Base
   	end
   end
 
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    end
+  end
+
 end
 
 
