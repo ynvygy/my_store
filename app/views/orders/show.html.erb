@@ -6,9 +6,15 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @order.user %>
+  <strong>Order Price:</strong>
+  <%= @order.total_price %>
 </p>
+
+<p> Order details </p>
+<% @order.line_items.each do |line_item| %>
+	<p>Product <%= line_item.product.name %> </p>
+	<p><%= line_item.product.price %> x <%=line_item.quantity%> = <%= line_item.total_price %> </p>
+<% end %>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

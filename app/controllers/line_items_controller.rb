@@ -44,7 +44,7 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1.json
   def update
     respond_to do |format|
-      if @line_item.update(line_item_params)
+      if @line_item.update(line_item_update_params)
         format.html { redirect_to @cart, notice: 'Line item was successfully updated.' }
         format.json { render :show, status: :ok, location: @line_item }
       else
@@ -74,5 +74,7 @@ class LineItemsController < ApplicationController
     def line_item_params
       params.require(:line_item).permit(:product_id, :cart_id, :order_id)
     end
-
+    def line_item_update_params
+      params.require(:line_item).permit(:quantity)
+    end
 end

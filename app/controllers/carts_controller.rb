@@ -25,7 +25,6 @@ class CartsController < ApplicationController
   # POST /carts.json
   def create
     @cart = Cart.new(cart_params)
-
     respond_to do |format|
       if @cart.save
         format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
@@ -76,5 +75,9 @@ class CartsController < ApplicationController
     def invalid_cart
       logger.error "Attempt to access invalid cart #{params[:id]}"
       redirect_to root_path, notice: 'Invalid cart'
+    end
+
+    def line_item_params
+      params.require(:line_item).permit(:product_id, :cart_id, :order_id)
     end
 end

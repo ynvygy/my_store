@@ -2,8 +2,11 @@
 <%=link_to "Categories", categories_path %>
 
 <h4> Pleace check out our bargains </h4>
+<div class="col-md-6 col-md-offset-3"</div>
 <% @products.each do |product| %>
 	<% if product.offer %>
-		<p><%= product.name %></p>
+		<p><%= link_to product.name, category_product_path(@category,product) %></p>
+		This item is on <%= product.offer%> off, reduced from <%=product.price%> to <%=product.final_price%>
+		<%= image_tag(product.image.url) %>
 	<% end %>
 <% end %>

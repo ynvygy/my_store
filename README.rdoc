@@ -1,28 +1,21 @@
-== README
+Hello,
+This is an on-going project of mine, it's my first application that requires more complex development. I'm trying to complete it without using too many gems. I'm still learning from it and still developing it, updates come almost daily.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version : 2.1.5
+Rails version : 4.2.1
 
-Things you may want to cover:
+Future objectives
+Main
+-search button
+-improve authorization on certain pages - Basics checked
+-improve offer page
+-ability to add orders from admin page
+-create ascend/descend filters
+-add pdf option	- CHECKED
+-add email sender - Basics checked
+-adding a number of items carter on nav
 
-* Ruby version
+Secundary
+-improve layout
+-improve navbar
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

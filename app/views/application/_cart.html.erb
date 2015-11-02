@@ -1,9 +1,9 @@
-<% if @line_item %>
+<% if @cart.line_items %>
 	<p class="navbar-text.navbar-right">
-		<% if @count.line_items.count==0 %>
+		<% if @cart.line_items.count==0 %>
 			<li><%= link_to "Your cart is empty"%></li>
 		<%else%>
-			<li><%= link_to "You have #{pluralize @cart.count, "item"}.", cart_path%></li>
+			<li><%= link_to "You have #{pluralize @cart.line_items.count, "item"}.", cart_path%></li>
 		<%end%></p>
 <%end%>
 

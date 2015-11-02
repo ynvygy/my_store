@@ -11,16 +11,19 @@
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= @order.total_price %>
-</p>
-
-<p>
 	<strong>Products:</strong>
+  <p>Product Quantity Unit Price Full Price</p>
 	<% @order.line_items.each do |item| %>
-		<p><%= item.quantity %> x <%= item.product.name %> = <%=item.total_price %></p>
+		<p><%= item.product.name %> <%= item.quantity %> <%=item.product.price%> <%=item.total_price %></p>
 	<% end %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<p>
+  <strong>Total Price:</strong>
+  <%= @order.total_price %>
+</p>
+
+<%= link_to 'Edit', edit_admin_order_path(@order) %> |
+<%= link_to 'Back', admin_orders_path %> |
+<%= link_to "Download Invoice (PDF)", admin_order_path(@order, format: "pdf")%>
+

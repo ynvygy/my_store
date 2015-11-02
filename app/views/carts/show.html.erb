@@ -3,15 +3,13 @@
 		<%= form_for(item) do |f| %>
 			<li>
 				<%= f.number_field :quantity, :value => item.quantity %>
-				<%= f.hidden_field :quantity, :value => item.quantity %> 
 				x <%= item.product.name %>
-			<%= item.total_price %> </li>
-			<%= f.submit "Update" %>
+			<%= item.total_price %> <%= f.submit "Update" %></li>
 		<% end %>
 	<% end %>
 		<li><strong>Total Price:</strong> <%= @cart.total_price %></li>
 </ul>
-<%= button_to "Checkout", new_order_path, method: :get, data: { confirm: "Are you sure?" } %>
+<%= button_to "Checkout", new_user_order_path(current_user), method: :get, data: { confirm: "Are you sure?" } %>
 <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %> 
 <%= link_to 'Back', categories_path %>
 

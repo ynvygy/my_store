@@ -13,6 +13,15 @@ module Admin
     # GET /orders/1
     # GET /orders/1.json
     def show
+      respond_to do |format|
+        format.html
+        format.pdf do
+          pdf = OrderPdf.new(@order)
+          send_data pdf.render, filename: "order_#{@order.id}.pdf",
+                                type: "application/pdf",
+                                disposition: "inline"
+        end
+      end
     end
 
     # GET /orders/new

@@ -7,6 +7,6 @@ class LineItem < ActiveRecord::Base
   end
 
   def count
-  	line_items.count
+    @line_items.length
   end
 end

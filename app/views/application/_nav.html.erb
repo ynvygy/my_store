@@ -13,17 +13,11 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
-      <% if @category %>
-      <%= form_tag(category_products_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
+      <%= form_tag(category_products_path(@category), :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
         <div class="form-group">
         <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
         </div>
         <%= submit_tag "Search", :class => 'btn btn-default',:name => nil%>
-      <% end %>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Products", categories_path%></li>

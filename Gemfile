@@ -45,9 +45,10 @@ gem 'simple_form', '~> 3.1.1'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'puma'
-gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'will_paginate', '~> 3.0', '>= 3.0.7'
+gem 'prawn', '~> 2.0', '>= 2.0.2'
+gem 'prawn-table', '~> 0.2.2'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
