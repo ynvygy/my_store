@@ -6,11 +6,11 @@ Rails version : 4.2.1
 
 Future objectives
 Main
--search button
+-search button - partially working
 -improve authorization on certain pages - Basics checked
 -improve offer page - Basics checked
 -ability to add orders from admin page
--create ascend/descend filters
+-create ascend/descend sorting - working
 -add pdf option	- CHECKED
 -add email sender - Basics checked
 -adding a number of items carter on navbar - CHECKED
@@ -18,4 +18,6 @@ Main
 Secundary
 -improve layout
 -improve navbar
+
+* Due to other interests, i will take a break from developing this application.
 
