@@ -13,14 +13,15 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <%= form_tag(category_products_path(@category), :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
+      <%= form_tag(root_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
         <div class="form-group">
         <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
         </div>
         <%= submit_tag "Search", :class => 'btn btn-default',:name => nil%>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Products", categories_path%></li>
+        <li><%= link_to "Categories and Products", categories_path%></li>
+        <li><%= link_to "You have #{itemsnumber} items in your cart", cart_path(cartpage)%></li>
         <% if user_signed_in? %>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>

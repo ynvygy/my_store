@@ -4,9 +4,15 @@
   <div class="col-md-6 col-md-offset-3"</div>
 		<% @products.each do |product| %>
 			<tr>
+			<% if product.final_price!=product.price %>
+				<div class="box panel panel-default prod offer">
+					<td><%= link_to product.name, category_product_path(@category, product) %></td><br>
+						<td>Price <%= number_to_euro(product.final_price)%></td><br>
+			<% else %>
 				<div class="box panel panel-default prod">
 					<td><%= link_to product.name, category_product_path(@category, product) %></td><br>
-					<td>Price <%= number_to_euro(product.price) %></td><br>
+						<td>Price <%= number_to_euro(product.final_price)%></td><br>
+			<% end %>
 					<td><%= image_tag(product.image.url) %></td><br></div>
 				</tr>
 		<% end %>

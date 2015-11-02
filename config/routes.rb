@@ -18,7 +18,7 @@ resources :categories, only: [:index, :show] do
   resources :products, only: [:index, :show]
 end
 resources :users do
-  resources :orders, only: [:new, :create, :index]
+  resources :orders, only: [:new, :create, :index, :show]
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -5,16 +5,18 @@
   <%= @order.pay_type %>
 </p>
 
+<p> Order details </p>
+<p>Product Quantity Unit Price Full Price</p>
+<% @order.line_items.each do |item| %>
+	<p><%= item.product.name %> <%= item.quantity %> <%=item.product.price%> <%=item.total_price %></p>
+<% end %>
+
+
 <p>
-  <strong>Order Price:</strong>
+  <strong>Total Price:</strong>
   <%= @order.total_price %>
 </p>
 
-<p> Order details </p>
-<% @order.line_items.each do |line_item| %>
-	<p>Product <%= line_item.product.name %> </p>
-	<p><%= line_item.product.price %> x <%=line_item.quantity%> = <%= line_item.total_price %> </p>
-<% end %>
-
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
+<%= link_to "Download Invoice (PDF)", order_path(format: "pdf")%>

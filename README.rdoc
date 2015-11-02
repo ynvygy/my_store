@@ -8,12 +8,12 @@ Future objectives
 Main
 -search button
 -improve authorization on certain pages - Basics checked
--improve offer page
+-improve offer page - Basics checked
 -ability to add orders from admin page
 -create ascend/descend filters
 -add pdf option	- CHECKED
 -add email sender - Basics checked
--adding a number of items carter on nav
+-adding a number of items carter on navbar - CHECKED
 
 Secundary
 -improve layout

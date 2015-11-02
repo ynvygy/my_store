@@ -1,5 +1,6 @@
 class Cart < ActiveRecord::Base
 	has_many :line_items, dependent: :destroy
+  has_one :user
 	def add_product(product_id)
     current_item = line_items.find_by(product_id: product_id)
     if current_item
@@ -13,6 +14,6 @@ class Cart < ActiveRecord::Base
     line_items.to_a.sum { |item| item.total_price }
   end
   def count
-    @cart.line_items.length
+    @cart.line_items.count
   end
 end
